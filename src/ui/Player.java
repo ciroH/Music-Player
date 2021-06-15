@@ -1,17 +1,18 @@
 package ui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Dimension;
 
 public class Player extends JFrame {
 
@@ -21,6 +22,11 @@ public class Player extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		try {
+		    UIManager.setLookAndFeel(new FlatDarkLaf());
+		} catch( Exception ex ) {
+		    System.err.println( "Failed to initialize LaF" );
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -62,7 +68,10 @@ public class Player extends JFrame {
 		gbl_controlPanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		controlPanel.setLayout(gbl_controlPanel);
 		
-		JButton btnPrevious = new JButton(" ⏮︎");
+		JButton btnPrevious = new JButton("⏮︎");
+		btnPrevious.setPreferredSize(new Dimension(43, 24));
+		btnPrevious.setMaximumSize(new Dimension(43, 24));
+		btnPrevious.setMinimumSize(new Dimension(43, 24));
 		btnPrevious.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -76,6 +85,9 @@ public class Player extends JFrame {
 		controlPanel.add(btnPrevious, gbc_btnPrevious);
 		
 		JButton btnPlayPause = new JButton("⏯︎");
+		btnPlayPause.setPreferredSize(new Dimension(43, 24));
+		btnPlayPause.setMaximumSize(new Dimension(43, 24));
+		btnPlayPause.setMinimumSize(new Dimension(43, 24));
 		btnPlayPause.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -89,6 +101,9 @@ public class Player extends JFrame {
 		controlPanel.add(btnPlayPause, gbc_btnPlayPause);
 		
 		JButton btnNext = new JButton("⏭︎");
+		btnNext.setPreferredSize(new Dimension(43, 24));
+		btnNext.setMaximumSize(new Dimension(43, 24));
+		btnNext.setMinimumSize(new Dimension(43, 24));
 		btnNext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
