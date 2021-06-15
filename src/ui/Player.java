@@ -13,6 +13,9 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Dimension;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
 
 public class Player extends JFrame {
 
@@ -51,15 +54,17 @@ public class Player extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel infoPanel = new JPanel();
+		infoPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
 		infoPanel.setBounds(6, 42, 157, 167);
 		contentPane.add(infoPanel);
 		
 		JPanel PlaylistPanel = new JPanel();
+		PlaylistPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
 		PlaylistPanel.setBounds(175, 6, 261, 203);
 		contentPane.add(PlaylistPanel);
 		
 		JPanel controlPanel = new JPanel();
-		controlPanel.setBounds(6, 221, 160, 30);
+		controlPanel.setBounds(16, 221, 150, 30);
 		contentPane.add(controlPanel);
 		GridBagLayout gbl_controlPanel = new GridBagLayout();
 		gbl_controlPanel.columnWidths = new int[]{0, 0, 0, 0};
@@ -116,6 +121,7 @@ public class Player extends JFrame {
 		controlPanel.add(btnNext, gbc_btnNext);
 		
 		JPanel OptionsPanel = new JPanel();
+		OptionsPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
 		OptionsPanel.setBounds(6, 6, 157, 21);
 		contentPane.add(OptionsPanel);
 	}
