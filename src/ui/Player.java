@@ -6,7 +6,12 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatDarkLaf;
+
+import controller.*;
+
 import java.awt.GridBagLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -19,6 +24,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JMenuBar;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
 
 public class Player extends JFrame {
 
@@ -50,6 +58,8 @@ public class Player extends JFrame {
 	 * Create the frame.
 	 */
 	public Player() {
+		FileController fileManager = new FileController();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -128,14 +138,21 @@ public class Player extends JFrame {
 		OptionsPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
 		OptionsPanel.setBounds(6, 6, 157, 21);
 		contentPane.add(OptionsPanel);
+		OptionsPanel.setLayout(new BorderLayout(0, 0));
 		
 		JMenuBar menuBar = new JMenuBar();
 		OptionsPanel.add(menuBar);
 		
 		JMenu menuFile = new JMenu("File");
 		menuBar.add(menuFile);
+		menuFile.setPreferredSize(new Dimension(45,25));
 		
 		JMenuItem mntmOpenFile = new JMenuItem("Open File");
+		mntmOpenFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				fileManager.openFile();
+			}
+		});
 		menuFile.add(mntmOpenFile);
 		
 		JMenuItem mntmOpenFolder = new JMenuItem("Open Folder");
