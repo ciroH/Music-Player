@@ -1,22 +1,20 @@
 package controller;
 
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
+import data.DataFile;
 import entities.AudioFile;
 
 public class FileController {
-	AudioFile loadedFile = new AudioFile();
+	AudioFile selectedFile = new AudioFile();
+	DataFile fileManager = new DataFile();
 	String filePath;
 	
-	public void openFile() {
-		JFileChooser fileChooser = new JFileChooser();
-		FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("flac or mp3 file", "flac", "mp3");
-		fileChooser.setFileFilter(extensionFilter);
+	public void openFile(JFileChooser fileChooser) {
 		int valueReturned = fileChooser.showOpenDialog(fileChooser);
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
-			filePath = fileChooser.getSelectedFile().getPath();
-			loadedFile.setPath(filePath);
+			selectedFile.setPath(fileManager.getFilePath(fileChooser));
+			//calls audio layer sending selectedFile, and starts playing the file
 		}
 	}
 	

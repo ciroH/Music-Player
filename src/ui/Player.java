@@ -11,14 +11,16 @@ import controller.*;
 
 import java.awt.GridBagLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Dimension;
-import javax.swing.border.MatteBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JMenu;
@@ -150,7 +152,10 @@ public class Player extends JFrame {
 		JMenuItem mntmOpenFile = new JMenuItem("Open File");
 		mntmOpenFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				fileManager.openFile();
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("flac or mp3 file", "flac", "mp3");
+				fileChooser.setFileFilter(extensionFilter);
+				fileManager.openFile(fileChooser);
 			}
 		});
 		menuFile.add(mntmOpenFile);
