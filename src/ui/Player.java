@@ -16,6 +16,9 @@ import java.awt.Dimension;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JMenuBar;
 
 public class Player extends JFrame {
 
@@ -35,6 +38,7 @@ public class Player extends JFrame {
 				try {
 					Player frame = new Player();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -124,5 +128,17 @@ public class Player extends JFrame {
 		OptionsPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
 		OptionsPanel.setBounds(6, 6, 157, 21);
 		contentPane.add(OptionsPanel);
+		
+		JMenuBar menuBar = new JMenuBar();
+		OptionsPanel.add(menuBar);
+		
+		JMenu menuFile = new JMenu("File");
+		menuBar.add(menuFile);
+		
+		JMenuItem mntmOpenFile = new JMenuItem("Open File");
+		menuFile.add(mntmOpenFile);
+		
+		JMenuItem mntmOpenFolder = new JMenuItem("Open Folder");
+		menuFile.add(mntmOpenFolder);
 	}
 }
