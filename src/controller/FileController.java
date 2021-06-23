@@ -2,14 +2,27 @@ package controller;
 
 import javax.swing.JFileChooser;
 
-import data.DataFile;
+import data.DataAudio;
 import entities.AudioFile;
 
 public class FileController {
 	AudioFile selectedFile = new AudioFile();
-	DataFile fileManager = new DataFile();
+	DataAudio fileManager = new DataAudio();
 	String filePath;
+	int selectedLine = 0;
 	
+	
+	
+	public int getSelectedLine() {
+		return selectedLine;
+	}
+
+
+	public void setSelectedLine(int selectedLine) {
+		this.selectedLine = selectedLine;
+	}
+
+
 	public void openFile(JFileChooser fileChooser) {
 		int valueReturned = fileChooser.showOpenDialog(fileChooser);
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {

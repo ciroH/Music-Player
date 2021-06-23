@@ -149,6 +149,10 @@ public class Player extends JFrame {
 		menuBar.add(menuFile);
 		menuFile.setPreferredSize(new Dimension(45,25));
 		
+		JMenu menuSoundOut = new JMenu("Output");
+		menuBar.add(menuSoundOut);
+		menuSoundOut.setPreferredSize(new Dimension(60,25));
+		
 		JMenuItem mntmOpenFile = new JMenuItem("Open File");
 		mntmOpenFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -162,5 +166,10 @@ public class Player extends JFrame {
 		
 		JMenuItem mntmOpenFolder = new JMenuItem("Open Folder");
 		menuFile.add(mntmOpenFolder);
+		
+//		for (iterable_type iterable_element : iterable) {
+			//changes selectedLine
+//		}
+		
 	}
 }
