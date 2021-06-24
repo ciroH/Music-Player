@@ -60,7 +60,7 @@ public class Player extends JFrame {
 	 * Create the frame.
 	 */
 	public Player() {
-		FileController fileManager = new FileController();
+		PlaybackController playback = new PlaybackController();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -159,7 +159,8 @@ public class Player extends JFrame {
 				JFileChooser fileChooser = new JFileChooser();
 				FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("flac or mp3 file", "flac", "mp3");
 				fileChooser.setFileFilter(extensionFilter);
-				fileManager.openFile(fileChooser);
+				int valueReturned = fileChooser.showOpenDialog(fileChooser);
+				playback.openFile(fileChooser,valueReturned);
 			}
 		});
 		menuFile.add(mntmOpenFile);
@@ -169,6 +170,8 @@ public class Player extends JFrame {
 		
 //		for (iterable_type iterable_element : iterable) {
 			//changes selectedLine
+		
+		//for changing the selected Line, i should call new audioProcessing(selectedLine)
 //		}
 		
 	}
