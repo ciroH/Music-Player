@@ -20,7 +20,7 @@ public class AudioProcessing {
 		try {
 		Mixer defaultMixer = AudioSystem.getMixer(null);	//gets the default Mixer when using null as argument, so i don't need to use a Mixer.Info Array until i don't implement options for choosing a Mixer trough the GUI.
 		Line.Info[] lineInfo = defaultMixer.getTargetLineInfo();
-		port = (Clip)defaultMixer.getLine(lineInfo[selectedLine]);
+		port = AudioSystem.getClip();
 		} catch (LineUnavailableException e) { //catch also Mixer's exceptions and exceptions about the non-permission(OS level) of playing audio.
 			//throw exception
 			e.printStackTrace();
