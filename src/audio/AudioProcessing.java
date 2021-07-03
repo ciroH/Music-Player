@@ -40,9 +40,7 @@ public class AudioProcessing {
 			//TODO: add a LineListener to the clip port, in order to detect when a song finishes, to do a port.close()
 			if(port.isOpen()) port.close();
 			port.open(song); //find  a way of closing the Line/Clip that was open before this one
-			port.start();
-			//TOD0: try opening a .wav file, while having line xx uncommented; --> input.read(filePath.getBytes()); results in unsupported stream exception
-			//TODO: try playing a song without calling port.start();
+			port.start(); //port.start is necessary; port.open doesn't start the stream
 			//TODO: add a method that calls port.stop(), to pause the Stream;
 		} catch (Exception e) {
 			e.printStackTrace();
