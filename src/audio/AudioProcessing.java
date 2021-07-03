@@ -22,6 +22,7 @@ public class AudioProcessing {
 		Mixer defaultMixer = AudioSystem.getMixer(null);	//gets the default Mixer when using null as argument, so i don't need to use a Mixer.Info Array until i don't implement options for choosing a Mixer trough the GUI.
 		Line.Info[] lineInfo = defaultMixer.getTargetLineInfo();
 		port = AudioSystem.getClip();
+		port.close();
 		} catch (LineUnavailableException e) { //catch also Mixer's exceptions and exceptions about the non-permission(OS level) of playing audio.
 			//throw exception
 			e.printStackTrace();
@@ -38,12 +39,12 @@ public class AudioProcessing {
 			AudioInputStream song = AudioSystem.getAudioInputStream(bufferedInput);
 		//	port.addLineListener(null);
 			//TODO: add a LineListener to the clip port, in order to detect when a song finishes, to do a port.close()
+			if(port.isOpen()) port.close();
 			port.open(song); //find  a way of closing the Line/Clip that was open before this one
 			port.start();
 			//TODO: try opening a .wav file, while having line 36 uncommented;
 			//TODO: try playing a song without calling port.start();
 			//TODO: add a method that calls port.stop(), to pause the Stream;
-			//TODO: add a port.close() when Opening a new file, because the Clip port may be already in use;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
