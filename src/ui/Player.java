@@ -106,6 +106,11 @@ public class Player extends JFrame {
 		controlPanel.add(btnPrevious, gbc_btnPrevious);
 		
 		JButton btnPlayPause = new JButton("⏯︎");
+		btnPlayPause.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				playback.pause();
+			}
+		});
 		btnPlayPause.setPreferredSize(new Dimension(43, 24));
 		btnPlayPause.setMaximumSize(new Dimension(43, 24));
 		btnPlayPause.setMinimumSize(new Dimension(43, 24));

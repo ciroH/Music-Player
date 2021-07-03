@@ -36,4 +36,8 @@ public class PlaybackController {
 		}
 	}
 	
+	public void pause(){
+		audioManager.startPause();
+	}
+	
 }
