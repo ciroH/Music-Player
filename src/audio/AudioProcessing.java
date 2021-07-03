@@ -34,7 +34,6 @@ public class AudioProcessing {
 		String filePath = fileToStart.getPath();
 		try {
 			InputStream input = new FileInputStream(filePath);
-//non-essential//input.read(filePath.getBytes());
 			InputStream bufferedInput = new BufferedInputStream(input);
 			AudioInputStream song = AudioSystem.getAudioInputStream(bufferedInput);
 		//	port.addLineListener(null);
@@ -42,7 +41,7 @@ public class AudioProcessing {
 			if(port.isOpen()) port.close();
 			port.open(song); //find  a way of closing the Line/Clip that was open before this one
 			port.start();
-			//TODO: try opening a .wav file, while having line 36 uncommented;
+			//TOD0: try opening a .wav file, while having line xx uncommented; --> input.read(filePath.getBytes()); results in unsupported stream exception
 			//TODO: try playing a song without calling port.start();
 			//TODO: add a method that calls port.stop(), to pause the Stream;
 		} catch (Exception e) {
