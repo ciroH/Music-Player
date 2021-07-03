@@ -157,7 +157,7 @@ public class Player extends JFrame {
 		mntmOpenFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser fileChooser = new JFileChooser();
-				FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("flac or mp3 file", "flac", "mp3");
+				FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("wav, flac, or mp3 file","wav", "flac", "mp3");
 				fileChooser.setFileFilter(extensionFilter);
 				int valueReturned = fileChooser.showOpenDialog(fileChooser);
 				playback.openFile(fileChooser,valueReturned);

@@ -32,7 +32,7 @@ public class PlaybackController {
 	public void openFile(JFileChooser fileChooser, int valueReturned) {
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			selectedFile.setPath(fileManager.getFilePath(fileChooser));
-			//calls audio layer sending selectedFile, and starts playing the file
+			audioManager.fileStart(selectedFile);
 		}
 	}
 	

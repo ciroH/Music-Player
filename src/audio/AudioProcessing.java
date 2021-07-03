@@ -1,5 +1,6 @@
 package audio;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
@@ -32,8 +33,17 @@ public class AudioProcessing {
 		String filePath = fileToStart.getPath();
 		try {
 			InputStream input = new FileInputStream(filePath);
-			AudioInputStream song = AudioSystem.getAudioInputStream(input);
+//non-essential//input.read(filePath.getBytes());
+			InputStream bufferedInput = new BufferedInputStream(input);
+			AudioInputStream song = AudioSystem.getAudioInputStream(bufferedInput);
+		//	port.addLineListener(null);
+			//TODO: add a LineListener to the clip port, in order to detect when a song finishes, to do a port.close()
 			port.open(song); //find  a way of closing the Line/Clip that was open before this one
+			port.start();
+			//TODO: try opening a .wav file, while having line 36 uncommented;
+			//TODO: try playing a song without calling port.start();
+			//TODO: add a method that calls port.stop(), to pause the Stream;
+			//TODO: add a port.close() when Opening a new file, because the Clip port may be already in use;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

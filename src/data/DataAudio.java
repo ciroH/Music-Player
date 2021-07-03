@@ -6,7 +6,7 @@ public class DataAudio {
 
 	public String getFilePath(JFileChooser chosenFile) {
 		String filePath;
-		filePath = chosenFile.getSelectedFile().getPath();
+		filePath = chosenFile.getSelectedFile().getAbsolutePath();
 		return filePath;
 	}
 	
