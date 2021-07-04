@@ -8,6 +8,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.Line;
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 
@@ -36,12 +38,22 @@ public class AudioProcessing {
 			InputStream input = new FileInputStream(filePath);
 			InputStream bufferedInput = new BufferedInputStream(input);
 			AudioInputStream song = AudioSystem.getAudioInputStream(bufferedInput);
-		//	port.addLineListener(null);
-			//TODO: add a LineListener to the clip port, in order to detect when a song finishes, to do a port.close()
+			port.addLineListener(new LineListener() {
+				
+				@Override
+				public void update(LineEvent le) {
+					if(le.getType() == LineEvent.Type.STOP) {
+						port.close();
+						System.out.println("song finished; port closed.");
+						//TODO: check on the playList if there's another song to play after this one.
+					}
+					
+				}
+			});
+			
 			if(port.isOpen()) port.close();
 			port.open(song);
 			port.start(); //port.start is necessary; port.open doesn't start the stream by itself.
-			//TODO: add a method that calls port.stop(), to pause the Stream;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
