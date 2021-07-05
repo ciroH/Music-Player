@@ -17,6 +17,7 @@ import entities.AudioFile;
 
 public class AudioProcessing {
 	Clip port;
+	boolean streamIsPaused;
 	public AudioProcessing(int selectedLine) {
 		//Mixer.Info[] mixerInfo = AudioSystem.getMixerInfo(); //returns IllegalArguentException if no mixer is found; i have to catch the error outside the constructor and return a JOptionPane in the view layer notifying the issue
 		//for (Mixer.Info info : mixerInfo) System.out.println(info.getName()+" | "+info.getVendor());
@@ -43,17 +44,20 @@ public class AudioProcessing {
 				@Override
 				public void update(LineEvent le) {
 					if(le.getType() == LineEvent.Type.STOP) {
+						if(!streamIsPaused) {
 						port.close();
 						System.out.println("song finished; port closed.");
 						//TODO: check on the playList if there's another song to play after this one.
+						}
 					}
 					
 				}
 			});
 			
-			if(port.isOpen()) port.close();
+			if(port.isOpen()) port.close(); //the Clip port may be already in use, so it has to be closed here if it's already open
 			port.open(song);
 			port.start(); //port.start is necessary; port.open doesn't start the stream by itself.
+			streamIsPaused = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -61,8 +65,10 @@ public class AudioProcessing {
 	
 	public void startPause() {
 		if (port.isActive()) {
+			streamIsPaused = true;
 			port.stop();
 		} else {
+			streamIsPaused = false;
 			port.start();
 		}
 	}
