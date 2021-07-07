@@ -29,14 +29,14 @@ public class PlaybackController {
 	}
 
 
-	public void openFile(JFileChooser fileChooser, int valueReturned) {
+	public String openFile(JFileChooser fileChooser, int valueReturned) {
 		String songInfo = "";
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			selectedFile.setPath(fileManager.getFilePath(fileChooser));
-			songInfo = getSongTitle(songInfo);
+			songInfo = getSongTitle(selectedFile.getPath());
 			songInfo +=	audioManager.fileStart(selectedFile);
-
 		}
+		return songInfo;
 	}
 	
 	public void pause(){

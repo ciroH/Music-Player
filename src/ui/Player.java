@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
@@ -61,6 +62,7 @@ public class Player extends JFrame {
 	 */
 	public Player() {
 		PlaybackController playback = new PlaybackController();
+		String fileInfo;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -82,6 +84,21 @@ public class Player extends JFrame {
 		JPanel titlePanel = new JPanel();
 		titlePanel.setBounds(6, 132, 145, 29);
 		infoPanel.add(titlePanel);
+		GridBagLayout gbl_titlePanel = new GridBagLayout();
+		gbl_titlePanel.columnWidths = new int[]{0, 0};
+		gbl_titlePanel.rowHeights = new int[]{0, 0};
+		gbl_titlePanel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_titlePanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		titlePanel.setLayout(gbl_titlePanel);
+		
+		JLabel songInfoLabel = new JLabel("New label");
+		GridBagConstraints gbc_songInfoLabel = new GridBagConstraints();
+		gbc_songInfoLabel.gridx = 0;
+		gbc_songInfoLabel.gridy = 0;
+		titlePanel.add(songInfoLabel, gbc_songInfoLabel);
+		
+		
+		
 		
 		JPanel PlaylistPanel = new JPanel();
 		PlaylistPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
@@ -170,11 +187,15 @@ public class Player extends JFrame {
 		JMenuItem mntmOpenFile = new JMenuItem("Open File");
 		mntmOpenFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String title;
 				JFileChooser fileChooser = new JFileChooser();
 				FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("wav, flac, or mp3 file","wav", "flac", "mp3");
 				fileChooser.setFileFilter(extensionFilter);
 				int valueReturned = fileChooser.showOpenDialog(fileChooser);
-				playback.openFile(fileChooser,valueReturned);
+				title = playback.openFile(fileChooser,valueReturned);
+				updateSongDisplayedInfo(title);
+				
+				
 			}
 		});
 		menuFile.add(mntmOpenFile);
@@ -188,5 +209,12 @@ public class Player extends JFrame {
 		//for changing the selected Line, i should call new audioProcessing(selectedLine)
 //		}
 		
+	}
+
+	public void updateSongDisplayedInfo(String title) {
+		String fileInfo;
+		JLabel songInfoLabel;
+		fileInfo = title;
+		songInfoLabel = new JLabel(fileInfo);
 	}
 }
