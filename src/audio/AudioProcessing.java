@@ -33,8 +33,9 @@ public class AudioProcessing {
 		
 	}
 	
-	public void fileStart(AudioFile fileToStart) {
+	public String fileStart(AudioFile fileToStart) {
 		String filePath = fileToStart.getPath();
+		String songFormat = "";
 		try {
 			InputStream input = new FileInputStream(filePath);
 			InputStream bufferedInput = new BufferedInputStream(input);
@@ -58,9 +59,12 @@ public class AudioProcessing {
 			port.open(song);
 			port.start(); //port.start is necessary; port.open doesn't start the stream by itself.
 			streamIsPaused = false;
+			//songFormat = getSongInfo(port);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
+			return songFormat;
+		
 	}
 	
 	public void startPause() {
@@ -71,6 +75,10 @@ public class AudioProcessing {
 			streamIsPaused = false;
 			port.start();
 		}
+	}
+	
+	public void getSongInfo() {
+	//	port.getFormat()
 	}
 	
 }

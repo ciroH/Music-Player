@@ -75,6 +75,14 @@ public class Player extends JFrame {
 		contentPane.add(infoPanel);
 		infoPanel.setLayout(null);
 		
+		JPanel coverPanel = new JPanel();
+		coverPanel.setBounds(6, 6, 145, 114);
+		infoPanel.add(coverPanel);
+		
+		JPanel titlePanel = new JPanel();
+		titlePanel.setBounds(6, 132, 145, 29);
+		infoPanel.add(titlePanel);
+		
 		JPanel PlaylistPanel = new JPanel();
 		PlaylistPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
 		PlaylistPanel.setBounds(175, 6, 261, 203);

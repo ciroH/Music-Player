@@ -30,9 +30,12 @@ public class PlaybackController {
 
 
 	public void openFile(JFileChooser fileChooser, int valueReturned) {
+		String songInfo = "";
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			selectedFile.setPath(fileManager.getFilePath(fileChooser));
-			audioManager.fileStart(selectedFile);
+			songInfo = getSongTitle(songInfo);
+			songInfo +=	audioManager.fileStart(selectedFile);
+
 		}
 	}
 	
@@ -40,4 +43,9 @@ public class PlaybackController {
 		audioManager.startPause();
 	}
 	
+
+	public String getSongTitle(String path) {
+		return fileManager.getTitle(path);
+	}
+
 }

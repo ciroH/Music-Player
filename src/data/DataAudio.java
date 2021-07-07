@@ -1,5 +1,7 @@
 package data;
 
+import java.util.Iterator;
+
 import javax.swing.JFileChooser;
 
 public class DataAudio {
@@ -10,4 +12,16 @@ public class DataAudio {
 		return filePath;
 	}
 	
+
+
+	public String getTitle(String path) {
+		String title;
+		StringBuilder titleBuilder = new StringBuilder(path);
+		int lastSlash;
+		
+			lastSlash = titleBuilder.lastIndexOf("/");
+			title = titleBuilder.substring(lastSlash);
+			
+		return title;
+	}
 }
