@@ -20,10 +20,8 @@ public class DataAudio {
 		int lastSlash;
 		
 			lastSlash = titleBuilder.lastIndexOf("/");
-			title = titleBuilder.substring(lastSlash); //Exception in thread "AWT-EventQueue-0" java.lang.StringIndexOutOfBoundsException: start -1, end 0, length 0
+			title = (titleBuilder.substring(lastSlash)).substring(1); //Exception in thread "AWT-EventQueue-0" java.lang.StringIndexOutOfBoundsException: start -1, end 0, length 0
 			title += "\n";
-			//TODO:Check behavior when opening a broken .wav file
-			//TODO:Delete first element of title
 			//TODO:Fix JLabel not displaying the title.
 		return title;
 	}
