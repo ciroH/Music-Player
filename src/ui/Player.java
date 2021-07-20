@@ -26,6 +26,7 @@ import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenuBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -34,7 +35,7 @@ import java.awt.BorderLayout;
 public class Player extends JFrame {
 
 	private JPanel contentPane;
-
+	JLabel songInfoLabel;
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +52,7 @@ public class Player extends JFrame {
 					frame.setVisible(true);
 					frame.setResizable(false);
 				} catch (Exception e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null,"Exception:" + e);
 				}
 			}
 		});
@@ -63,6 +64,7 @@ public class Player extends JFrame {
 	public Player() {
 		PlaybackController playback = new PlaybackController();
 		String fileInfo;
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -91,7 +93,7 @@ public class Player extends JFrame {
 		gbl_titlePanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		titlePanel.setLayout(gbl_titlePanel);
 		
-		JLabel songInfoLabel = new JLabel("New label");
+		songInfoLabel = new JLabel("");
 		GridBagConstraints gbc_songInfoLabel = new GridBagConstraints();
 		gbc_songInfoLabel.gridx = 0;
 		gbc_songInfoLabel.gridy = 0;
@@ -212,9 +214,6 @@ public class Player extends JFrame {
 	}
 
 	public void updateSongDisplayedInfo(String title) {
-		String fileInfo;
-		JLabel songInfoLabel;
-		fileInfo = title;
-		songInfoLabel = new JLabel(fileInfo);
+		songInfoLabel.setText(title);
 	}
 }
