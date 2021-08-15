@@ -22,7 +22,6 @@ import java.awt.event.MouseEvent;
 import java.awt.Dimension;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -33,7 +32,8 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 
 public class Player extends JFrame {
-
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	JLabel songInfoLabel;
 	/**
