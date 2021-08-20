@@ -31,7 +31,6 @@ import controller.PlaybackController;
 
 public class Player extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
 	private JPanel contentPane;
 	JLabel songInfoLabel;
 	/**
@@ -212,6 +211,6 @@ public class Player extends JFrame {
 	}
 
 	public void updateSongDisplayedInfo(String title) {
-		songInfoLabel.setText(title);
+		setTitle(title);
 	}
 }
