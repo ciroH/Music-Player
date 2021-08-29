@@ -1,6 +1,5 @@
 package data;
 
-import java.util.Iterator;
 
 import javax.swing.JFileChooser;
 
@@ -22,7 +21,6 @@ public class DataAudio {
 			lastSlash = titleBuilder.lastIndexOf("/");
 			title = (titleBuilder.substring(lastSlash)).substring(1);
 			title += "\n";
-			//TODO:Fix JLabel not displaying the title.
 		return title;
 	}
 }
