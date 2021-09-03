@@ -9,9 +9,9 @@ import entities.AudioFile;
 public class PlaybackController {
 	String filePath;
 	int selectedLine = 0;
-	AudioFile selectedFile = new AudioFile();
-	DataAudio fileManager = new DataAudio();
-	AudioProcessing audioManager = new AudioProcessing(selectedLine);
+	private AudioFile selectedFile = new AudioFile();
+	private DataAudio fileManager = new DataAudio();
+	private AudioProcessing audioManager = new AudioProcessing(selectedLine);
 		
 	
 	public int getSelectedLine() {

@@ -34,20 +34,7 @@ public class AudioProcessing {
 			InputStream input = new FileInputStream(filePath);
 			InputStream bufferedInput = new BufferedInputStream(input);
 			AudioInputStream song = AudioSystem.getAudioInputStream(bufferedInput);
-			port.addLineListener(new LineListener() {
-				
-				@Override
-				public void update(LineEvent le) {
-					if(le.getType() == LineEvent.Type.STOP) {
-						if(!streamIsPaused) {
-						port.close();
-						System.out.println("song finished; port closed.");
-						//TODO: check on the playList if there's another song to play after this one.
-						}
-					}
-					
-				}
-			});
+			listenPort();
 			
 			if(port.isOpen()) port.close(); //the Clip port may be already in use, so it has to be closed here if it's already open
 			port.open(song);
@@ -59,6 +46,23 @@ public class AudioProcessing {
 		}
 			return songFormat;
 		
+	}
+
+	public void listenPort() {
+		port.addLineListener(new LineListener() {
+			
+			@Override
+			public void update(LineEvent le) {
+				if(le.getType() == LineEvent.Type.STOP) {
+					if(!streamIsPaused) {
+					port.close();
+					System.out.println("song finished; port closed.");
+					//TODO: check on the playList if there's another song to play after this one.
+					}
+				}
+				
+			}
+		});
 	}
 	
 	public void startPause() {
