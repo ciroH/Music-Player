@@ -200,6 +200,15 @@ public class Player extends JFrame {
 		menuFile.add(mntmOpenFile);
 		
 		JMenuItem mntmOpenFolder = new JMenuItem("Open Folder");
+		mntmOpenFolder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFileChooser folderChooser = new JFileChooser();
+				folderChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				int valueReturned = folderChooser.showOpenDialog(folderChooser);
+				
+				
+			}
+		});
 		menuFile.add(mntmOpenFolder);
 		
 //		for (iterable_type iterable_element : iterable) {
