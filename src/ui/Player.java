@@ -202,9 +202,11 @@ public class Player extends JFrame {
 		JMenuItem mntmOpenFolder = new JMenuItem("Open Folder");
 		mntmOpenFolder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String folderPath; //TODO: i need the folder path for getting the album's cover.
 				JFileChooser folderChooser = new JFileChooser();
 				folderChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				int valueReturned = folderChooser.showOpenDialog(folderChooser);
+				folderPath = playback.openFolder(folderChooser, valueReturned);
 				
 				
 			}

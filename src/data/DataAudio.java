@@ -22,4 +22,11 @@ public class DataAudio {
 			title = (titleBuilder.substring(lastSlash)).substring(1);
 		return title;
 	}
+	
+	
+	public String getFolderPath(JFileChooser chosenFolder) {
+		
+		return getFilePath(chosenFolder);
+	}
+
 }
