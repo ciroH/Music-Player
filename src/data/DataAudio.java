@@ -33,7 +33,7 @@ public class DataAudio {
 	}
 	
 	
-	public LinkedList<String> getFolderFiles(String folderPath) {
+	public LinkedList<String> getFolderFileList(String folderPath) {
 		LinkedList<String> playList = new LinkedList<String>();
 		File folder = new File(folderPath);
 		File[] filesInFolder = folder.listFiles(new FilenameFilter() {

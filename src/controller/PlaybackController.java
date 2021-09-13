@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.LinkedList;
+
 import javax.swing.JFileChooser;
 
 import audio.AudioProcessing;
@@ -12,7 +14,7 @@ public class PlaybackController {
 	private AudioFile selectedFile = new AudioFile();
 	private DataAudio fileManager = new DataAudio();
 	private AudioProcessing audioManager = new AudioProcessing(selectedLine);
-		
+	LinkedList<String> playList = new LinkedList<>();
 	
 	public int getSelectedLine() {
 		return selectedLine;
@@ -44,7 +46,8 @@ public class PlaybackController {
 		String folderPath = "";
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			folderPath = fileManager.getFolderPath(filechooser);
-			
+			playList = fileManager.getFolderFileList(folderPath);
+			audioManager.loadPlayList(playList);
 		}
 		return folderPath;
 	}

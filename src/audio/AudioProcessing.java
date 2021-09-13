@@ -3,6 +3,7 @@ package audio;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.LinkedList;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -16,6 +17,9 @@ import entities.AudioFile;
 public class AudioProcessing {
 	Clip port;
 	boolean streamIsPaused;
+	LinkedList<String> playList = new LinkedList<>();
+	AudioFile fileToStart = new AudioFile();
+	
 	public AudioProcessing(int selectedLine) {
 		try {
 		port = AudioSystem.getClip();
@@ -26,7 +30,28 @@ public class AudioProcessing {
 		}
 		
 	}
+		
 	
+	public LinkedList<String> getPlayList() {
+		return playList;
+	}
+
+
+	public void setPlayList(LinkedList<String> playList) {
+		this.playList = playList;
+	}
+
+	
+	public AudioFile getFileToStart() {
+		return fileToStart;
+	}
+
+
+	public void setFileToStart(AudioFile fileToStart) {
+		this.fileToStart = fileToStart;
+	}
+
+
 	public String fileStart(AudioFile fileToStart) {
 		String filePath = fileToStart.getPath();
 		String songFormat = "";
@@ -74,6 +99,19 @@ public class AudioProcessing {
 			port.start();
 		}
 	}
+	
+	public void loadPlayList(LinkedList<String> fileList) {
+		if (fileList.size() > 0) {
+			AudioFile tempAudioFile = new AudioFile(); 
+			this.setPlayList(fileList);
+			tempAudioFile.setPath((this.getPlayList().get(0)));
+			this.setFileToStart(tempAudioFile);
+			this.fileStart(fileToStart);
+		}
+		
+	}
+	
+	
 	
 	public void getSongInfo() {
 	//	port.getFormat()
