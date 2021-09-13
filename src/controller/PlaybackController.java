@@ -39,13 +39,16 @@ public class PlaybackController {
 		return songInfo;
 	}
 	
+	
 	public String openFolder(JFileChooser filechooser, int valueReturned) {
 		String folderPath = "";
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			folderPath = fileManager.getFolderPath(filechooser);
+			
 		}
 		return folderPath;
 	}
+	
 	
 	public void pause(){
 		audioManager.startPause();

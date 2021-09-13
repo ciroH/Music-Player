@@ -1,6 +1,10 @@
 package data;
 
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.LinkedList;
+
 import javax.swing.JFileChooser;
 
 public class DataAudio {
@@ -11,7 +15,12 @@ public class DataAudio {
 		return filePath;
 	}
 	
-
+	
+	public String getFolderPath(JFileChooser chosenFolder) {
+		
+		return getFilePath(chosenFolder);
+	}
+	
 
 	public String getTitle(String path) {
 		String title;
@@ -24,9 +33,20 @@ public class DataAudio {
 	}
 	
 	
-	public String getFolderPath(JFileChooser chosenFolder) {
-		
-		return getFilePath(chosenFolder);
+	public LinkedList<String> getFolderFiles(String folderPath) {
+		LinkedList<String> playList = new LinkedList<String>();
+		File folder = new File(folderPath);
+		File[] filesInFolder = folder.listFiles(new FilenameFilter() {
+			
+			@Override
+			public boolean accept(File arg0, String arg1) {
+				return arg1.toLowerCase().endsWith(".wav");
+			}
+		});
+		for (File file : filesInFolder) {
+			playList.add(file.getAbsolutePath());
+		}
+		return playList;
 	}
-
+	
 }
