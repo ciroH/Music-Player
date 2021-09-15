@@ -18,6 +18,7 @@ public class AudioProcessing {
 	Clip port;
 	boolean streamIsPaused;
 	LinkedList<String> playList = new LinkedList<>();
+	int playListIndex = -1;
 	AudioFile fileToStart = new AudioFile();
 	
 	public AudioProcessing(int selectedLine) {
@@ -62,9 +63,10 @@ public class AudioProcessing {
 			listenPort();
 			
 			if(port.isOpen()) port.close(); //the Clip port may be already in use, so it has to be closed here if it's already open
+			streamIsPaused = false; //*
 			port.open(song);
 			port.start(); //port.start is necessary; port.open doesn't start the stream by itself.
-			streamIsPaused = false;
+			//*
 			//songFormat = getSongInfo(port);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,6 +107,7 @@ public class AudioProcessing {
 			AudioFile tempAudioFile = new AudioFile(); 
 			this.setPlayList(fileList);
 			tempAudioFile.setPath((this.getPlayList().get(0)));
+			this.playListIndex = 0; //TODO: replace the playList with a HashMap and delete this index
 			this.setFileToStart(tempAudioFile);
 			this.fileStart(fileToStart);
 		}
