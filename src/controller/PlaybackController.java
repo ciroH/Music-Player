@@ -62,7 +62,4 @@ public class PlaybackController {
 		return fileManager.getTitle(path);
 	}
 	
-	
-	
-
 }
