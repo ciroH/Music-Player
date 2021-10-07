@@ -63,7 +63,7 @@ public class AudioProcessing {
 			listenPort();
 			
 			if(port.isOpen()) port.close(); //the Clip port may be already in use, so it has to be closed here if it's already open
-			streamIsPaused = false; //*
+			streamIsPaused = false; //* TODO: fix streamIsPaused state when opening a new folder while playing a song.
 			port.open(song);
 			port.start(); //port.start is necessary; port.open doesn't start the stream by itself.
 			//*

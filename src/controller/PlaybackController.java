@@ -14,7 +14,7 @@ public class PlaybackController {
 	private AudioFile selectedFile = new AudioFile();
 	private DataAudio fileManager = new DataAudio();
 	private AudioProcessing audioManager = new AudioProcessing(selectedLine);
-	LinkedList<String> playList = new LinkedList<>();
+	LinkedList<String> playlist = new LinkedList<>();
 	
 	public int getSelectedLine() {
 		return selectedLine;
@@ -46,8 +46,8 @@ public class PlaybackController {
 		String folderPath = "";
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			folderPath = fileManager.getFolderPath(filechooser);
-			playList = fileManager.getFolderFileList(folderPath);
-			audioManager.loadPlayList(playList);
+			playlist = fileManager.getFolderFileList(folderPath);
+			audioManager.loadPlayList(playlist);
 		}
 		return folderPath;
 	}

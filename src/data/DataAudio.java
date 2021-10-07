@@ -34,7 +34,7 @@ public class DataAudio {
 	
 	
 	public LinkedList<String> getFolderFileList(String folderPath) {
-		LinkedList<String> playList = new LinkedList<String>();
+		LinkedList<String> playlist = new LinkedList<String>();
 		File folder = new File(folderPath);
 		File[] filesInFolder = folder.listFiles(new FilenameFilter() {
 			
@@ -44,9 +44,9 @@ public class DataAudio {
 			}
 		});
 		for (File file : filesInFolder) {
-			playList.add(file.getAbsolutePath());
+			playlist.add(file.getAbsolutePath());
 		}
-		return playList;
+		return playlist;
 	}
 	
 }
