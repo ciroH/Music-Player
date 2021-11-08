@@ -59,9 +59,7 @@ public class Player extends JFrame {
 	 * Create the frame.
 	 */
 	public Player() {
-		PlaybackController playback = new PlaybackController();
-		String fileInfo;
-		
+		PlaybackController playback = new PlaybackController();		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
