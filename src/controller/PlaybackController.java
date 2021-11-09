@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import javax.swing.JFileChooser;
 import audio.AudioProcessing;
@@ -12,7 +13,7 @@ public class PlaybackController {
 	private AudioFile selectedFile = new AudioFile();
 	private DataAudio fileManager = new DataAudio();
 	private AudioProcessing audioManager = new AudioProcessing(selectedLine);
-	LinkedList<String> playlist = new LinkedList<>();
+	HashMap<Integer,String> playlist = new HashMap<>();
 	
 	public int getSelectedLine() {
 		return selectedLine;
