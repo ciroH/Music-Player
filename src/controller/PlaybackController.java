@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import javax.swing.JFileChooser;
 import audio.AudioProcessing;
 import data.DataAudio;

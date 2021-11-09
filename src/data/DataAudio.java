@@ -3,7 +3,6 @@ package data;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.HashMap;
-import java.util.LinkedList;
 import javax.swing.JFileChooser;
 
 public class DataAudio {
