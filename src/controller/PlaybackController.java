@@ -5,14 +5,20 @@ import javax.swing.JFileChooser;
 import audio.AudioProcessing;
 import data.DataAudio;
 import entities.AudioFile;
+import ui.Player;
 
 public class PlaybackController {
 	String filePath;
 	int selectedLine = 0;
+	public Player uiRefInstance;
 	private AudioFile selectedFile = new AudioFile();
 	private DataAudio fileManager = new DataAudio();
 	private AudioProcessing audioManager = new AudioProcessing(selectedLine);
 	HashMap<Integer,String> playlist = new HashMap<>();
+	
+	public PlaybackController(Player playerReference) {
+		uiRefInstance = playerReference; //References the active instance of ui.Player
+	}
 	
 	public int getSelectedLine() {
 		return selectedLine;
