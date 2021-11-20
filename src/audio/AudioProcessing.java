@@ -100,13 +100,7 @@ public class AudioProcessing {
 		}
 	}
 	
-	public void loadPlaylist(HashMap<Integer, String> fileList) {
-		if (fileList.size() > 0) {
-			this.setPlayList(fileList);
-			playlistStart();
-		}
-		
-	}
+
 
 
 	public void playlistStart() {

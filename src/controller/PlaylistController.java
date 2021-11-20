@@ -17,7 +17,9 @@ public class PlaylistController {
 		audioManager = audio;	
 	}
 
-	
+	public void setPlayList(HashMap<Integer,String> playList) {
+		this.playlist = playList;
+	}
 	
 	public HashMap<Integer, String> getPlaylist() {
 		return playlist;
@@ -40,6 +42,15 @@ public class PlaylistController {
 	}
 	
 	//TODO: move AudioProcessing loadPlaylist(), playlistStart(), playListIndex, and playlist to PlaylistController
+	
+	public void loadPlaylist(HashMap<Integer, String> fileList) {
+		if (fileList.size() > 0) {
+			this.setPlayList(fileList);
+			startPlaylist();
+		}
+		
+	}
+	
 	
 	public void startPlaylist() {
 		

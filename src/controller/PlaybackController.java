@@ -52,7 +52,8 @@ public class PlaybackController {
 		if (valueReturned == JFileChooser.APPROVE_OPTION) {
 			folderPath = fileManager.getFolderPath(filechooser);
 			playlist = fileManager.getFolderFileList(folderPath);
-			audioManager.loadPlaylist(playlist);
+			playlistControl.loadPlaylist(playlist);
+			
 		}
 		return folderPath;
 	}
