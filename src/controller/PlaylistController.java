@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import audio.AudioProcessing;
+import entities.AudioFile;
 import ui.Player;
 
 public class PlaylistController {
@@ -12,11 +13,13 @@ public class PlaylistController {
 	HashMap<Integer, String> playlist = new HashMap<>();
 	int index = -1;
 	
+	
 	public PlaylistController(Player player, AudioProcessing audio) {
 		uiRefInstance = player;
 		audioManager = audio;	
 	}
 
+	
 	public void setPlayList(HashMap<Integer,String> playList) {
 		this.playlist = playList;
 	}
@@ -25,7 +28,9 @@ public class PlaylistController {
 		return playlist;
 	}
 
-	
+	public void resetIndex() {
+		index = -1;
+	}
 	
 	public void setPlaylist(HashMap<Integer, String> recievedHashMap) {
 		if(this.playlist.isEmpty()) this.playlist = recievedHashMap;
@@ -53,8 +58,11 @@ public class PlaylistController {
 	
 	
 	public void startPlaylist() {
-		
-		
+		AudioFile tempAudioFile = new AudioFile(); 
+		resetIndex();
+		index++;
+		tempAudioFile.setPath(getPlaylist().get(index));
+		audioManager.fileStart(tempAudioFile);
 	}
 	
 }
