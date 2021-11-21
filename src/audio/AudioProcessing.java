@@ -15,7 +15,6 @@ import entities.AudioFile;
 public class AudioProcessing {
 	Clip port;
 	boolean streamIsPaused;
-	HashMap<Integer,String> playList = new HashMap<>();
 	int playListIndex = -1;
 	AudioFile fileToStart = new AudioFile();
 	
@@ -28,16 +27,6 @@ public class AudioProcessing {
 			e.printStackTrace();
 		}
 		
-	}
-		
-	
-	public HashMap<Integer, String> getPlayList() {
-		return playList;
-	}
-
-
-	public void setPlayList(HashMap<Integer,String> playList) {
-		this.playList = playList;
 	}
 
 	
