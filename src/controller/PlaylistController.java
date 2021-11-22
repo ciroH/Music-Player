@@ -57,7 +57,7 @@ public class PlaylistController {
 	}
 	
 	
-	public void startPlaylist() {
+	public void startPlaylist() {	//TODO:Update Title and Picture
 		AudioFile tempAudioFile = new AudioFile(); 
 		resetIndex();
 		index++;
