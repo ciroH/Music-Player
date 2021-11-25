@@ -50,4 +50,15 @@ public class DataAudio {
 		return playlist;
 	}
 	
+	public String getImageRelativeToFile(String filePath) {
+		StringBuilder imagePath = new StringBuilder(filePath);
+		String imageName;
+		int lastSlash = imagePath.lastIndexOf("/");
+		
+		
+		
+		return "";
+	}
+	
+	
 }
