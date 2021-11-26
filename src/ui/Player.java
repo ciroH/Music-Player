@@ -219,7 +219,7 @@ public class Player extends JFrame {
 		
 	}
 
-	public void updateSongDisplayedInfo(String title) {
+	public void updateSongDisplayedInfo(String title) { //TODO: Make it recieve the AudioFile entity instead.
 		setTitle(title);
 	}
 }
