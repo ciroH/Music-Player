@@ -76,6 +76,7 @@ public class Player extends JFrame {
 	public Player() {
 		PlaybackController playback = new PlaybackController(this);		
 		
+		setTitle("Music-Player");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -215,6 +216,7 @@ public class Player extends JFrame {
 		JMenuItem mntmOpenFolder = new JMenuItem("Open Folder");
 		mntmOpenFolder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				@SuppressWarnings("unused")
 				String folderPath; //TODO: i need the folder path for getting the album's cover.
 				JFileChooser folderChooser = new JFileChooser();
 				folderChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
