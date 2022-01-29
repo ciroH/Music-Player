@@ -2,7 +2,7 @@
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=flat&logo=java&logoColor=white) ![Swing](https://img.shields.io/badge/swing-9cf?style=flat&logo=swing%logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=flat&logo=git&logoColor=white) ![GPL](https://img.shields.io/badge/-GPLv2-yellow) 
 
-
+The music player for .wav files.
 
 
 
