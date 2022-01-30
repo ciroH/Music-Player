@@ -43,6 +43,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 import controller.PlaybackController;
+import javax.swing.JSlider;
 
 public class Player extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -227,6 +228,11 @@ public class Player extends JFrame {
 			}
 		});
 		menuFile.add(mntmOpenFolder);
+		
+		JSlider volumeSlider = new JSlider();
+		volumeSlider.setValue(100);
+		volumeSlider.setBounds(175, 221, 103, 30);
+		contentPane.add(volumeSlider);
 		
 //		for (iterable_type iterable_element : iterable) {
 			//changes selectedLine
