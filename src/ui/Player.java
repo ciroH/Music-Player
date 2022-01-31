@@ -43,6 +43,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 import controller.PlaybackController;
+import entities.AudioFile;
+
 import javax.swing.JSlider;
 
 public class Player extends JFrame {
@@ -242,7 +244,12 @@ public class Player extends JFrame {
 		
 	}
 
-	public void updateSongDisplayedInfo(String title) { //TODO: Make it recieve the AudioFile entity instead.
+	public void updateSongDisplayedInfo(String title) { //TODO: For method calls, make them send the AudioFile entity instead.
 		setTitle(title);
 	}
+	
+	public void updateSongDisplayedInfo(AudioFile file) {
+		setTitle(file.getTitle());
+	}
+	
 }
