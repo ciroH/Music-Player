@@ -65,6 +65,7 @@ public class DataAudio {
 		return playlist;
 	}
 	
+	@SuppressWarnings("unused")
 	public String getImageRelativeToFile(String filePath) {
 		StringBuilder imagePath = new StringBuilder(filePath);
 		String imageName;
