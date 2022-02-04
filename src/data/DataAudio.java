@@ -46,7 +46,7 @@ public class DataAudio {
 	}
 	
 	
-	public HashMap<Integer,String> getFolderFileList(String folderPath) {
+	public HashMap<Integer,String> getFolderFileList(String folderPath) {	//TODO: fix loading bug
 		HashMap<Integer,String> playlist = new HashMap<>();
 		Integer fileKey = 0;
 		File folder = new File(folderPath);
