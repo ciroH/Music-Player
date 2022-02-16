@@ -29,11 +29,12 @@ public class PlaybackController {
 	private AudioFile selectedFile = new AudioFile();
 	private DataAudio fileManager = new DataAudio();
 	private AudioProcessing audioManager = new AudioProcessing(selectedLine);
-	private PlaylistController playlistControl = new PlaylistController(uiRefInstance,audioManager);
+	private PlaylistController playlistControl;
 	HashMap<Integer,String> playlist = new HashMap<>();
 	
 	public PlaybackController(Player playerReference) {
 		uiRefInstance = playerReference; //References the active instance of ui.Player
+		playlistControl = new PlaylistController(uiRefInstance,audioManager);
 	}
 	
 	public int getSelectedLine() {
