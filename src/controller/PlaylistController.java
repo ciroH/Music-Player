@@ -78,7 +78,7 @@ public class PlaylistController {
 		resetIndex();
 		index++;
 		tempAudioFile.setPath(getPlaylist().get(index));
-		uiRefInstance.updateSongDisplayedInfo(fileManager.getTitle(tempAudioFile.getPath())); //TODO: tempAudioFile needs a loaded Title before being sent to uiRefInstance
+		uiRefInstance.updateSongDisplayedInfo(fileManager.getTitle(tempAudioFile.getPath()));
 		audioManager.fileStart(tempAudioFile);
 	} //TODO: Make PlaybackController.openFile part of PlaylistController, in order to use it when calling startPlaylist method
 	
