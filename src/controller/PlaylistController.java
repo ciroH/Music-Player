@@ -19,12 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import audio.AudioProcessing;
+import data.DataAudio;
 import entities.AudioFile;
 import ui.Player;
 
 public class PlaylistController {
 	Player uiRefInstance;
 	AudioProcessing audioManager;
+	DataAudio fileManager = new DataAudio();
 	HashMap<Integer, String> playlist = new HashMap<>();
 	int index = -1;
 	
@@ -76,7 +78,8 @@ public class PlaylistController {
 		resetIndex();
 		index++;
 		tempAudioFile.setPath(getPlaylist().get(index));
+		uiRefInstance.updateSongDisplayedInfo(fileManager.getTitle(tempAudioFile.getPath())); //TODO: tempAudioFile needs a loaded Title before being sent to uiRefInstance
 		audioManager.fileStart(tempAudioFile);
-	}
+	} //TODO: Make PlaybackController.openFile part of PlaylistController, in order to use it when calling startPlaylist method
 	
 }
