@@ -61,7 +61,6 @@ public class PlaylistController {
 		playlist.clear();
 	}
 	
-	//TODO: move AudioProcessing loadPlaylist(), playlistStart(), playListIndex, and playlist to PlaylistController
 	
 	public void loadPlaylist(HashMap<Integer, String> fileList) {
 		if (fileList.size() > 0) {
@@ -72,7 +71,7 @@ public class PlaylistController {
 	}
 	
 	
-	public void startPlaylist() {	//TODO:Update Title and Picture
+	public void startPlaylist() {	//TODO: Update Title and Picture
 		AudioFile tempAudioFile = new AudioFile(); 
 		resetIndex();
 		index++;

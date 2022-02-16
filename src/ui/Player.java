@@ -39,9 +39,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 import com.formdev.flatlaf.FlatDarkLaf;
-
 import controller.PlaybackController;
 import entities.AudioFile;
 
