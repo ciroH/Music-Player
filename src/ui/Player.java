@@ -33,6 +33,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JSlider;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -40,10 +41,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import com.formdev.flatlaf.FlatDarkLaf;
+
 import controller.PlaybackController;
 import entities.AudioFile;
-
-import javax.swing.JSlider;
 
 public class Player extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -56,7 +56,7 @@ public class Player extends JFrame {
 		try {
 		    UIManager.setLookAndFeel(new FlatDarkLaf());
 		} catch( Exception ex ) {
-		    System.err.println( "Failed to initialize LaF" );
+		    JOptionPane.showMessageDialog(null, "Failed to initialize LaF: \n" + ex.getMessage());
 		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
