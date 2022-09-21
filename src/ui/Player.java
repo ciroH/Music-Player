@@ -37,6 +37,7 @@ import javax.swing.JSlider;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -55,7 +56,7 @@ public class Player extends JFrame {
 	public static void main(String[] args) {
 		try {
 		    UIManager.setLookAndFeel(new FlatDarkLaf());
-		} catch( Exception ex ) {
+		} catch( UnsupportedLookAndFeelException ex ) {
 		    JOptionPane.showMessageDialog(null, "Failed to initialize LaF: \n" + ex.getMessage());
 		}
 		EventQueue.invokeLater(new Runnable() {
@@ -77,13 +78,7 @@ public class Player extends JFrame {
 	public Player() {
 		PlaybackController playback = new PlaybackController(this);		
 		
-		setTitle("Music-Player");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setContentPane();
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
@@ -240,6 +235,16 @@ public class Player extends JFrame {
 		//for changing the selected Line, i should call new audioProcessing(selectedLine)
 //		}
 		
+	}
+
+	private void setContentPane() {
+		setTitle("Music-Player");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 	}
 
 	public void updateSongDisplayedInfo(String title) { //TODO: For method calls, make them send the AudioFile entity instead.
