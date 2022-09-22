@@ -79,35 +79,7 @@ public class Player extends JFrame {
 		PlaybackController playback = new PlaybackController(this);		
 		
 		setContentPane();
-		
-		JPanel infoPanel = new JPanel();
-		infoPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
-		infoPanel.setBounds(6, 42, 157, 167);
-		contentPane.add(infoPanel);
-		infoPanel.setLayout(null);
-		
-		JPanel coverPanel = new JPanel();
-		coverPanel.setBounds(6, 6, 145, 114);
-		infoPanel.add(coverPanel);
-		
-		JPanel titlePanel = new JPanel();
-		titlePanel.setBounds(6, 132, 145, 29);
-		infoPanel.add(titlePanel);
-		GridBagLayout gbl_titlePanel = new GridBagLayout();
-		gbl_titlePanel.columnWidths = new int[]{0, 0};
-		gbl_titlePanel.rowHeights = new int[]{0, 0};
-		gbl_titlePanel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_titlePanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		titlePanel.setLayout(gbl_titlePanel);
-		
-		songInfoLabel = new JLabel("");
-		GridBagConstraints gbc_songInfoLabel = new GridBagConstraints();
-		gbc_songInfoLabel.gridx = 0;
-		gbc_songInfoLabel.gridy = 0;
-		titlePanel.add(songInfoLabel, gbc_songInfoLabel);
-		
-		
-		
+		embedInfoPanel();
 		
 		JPanel PlaylistPanel = new JPanel();
 		PlaylistPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
@@ -235,6 +207,34 @@ public class Player extends JFrame {
 		//for changing the selected Line, i should call new audioProcessing(selectedLine)
 //		}
 		
+	}
+
+	private void embedInfoPanel() {
+		JPanel infoPanel = new JPanel();
+		infoPanel.setBorder(new LineBorder(UIManager.getColor("text"), 2));
+		infoPanel.setBounds(6, 42, 157, 167);
+		contentPane.add(infoPanel);
+		infoPanel.setLayout(null);
+		
+		JPanel coverPanel = new JPanel();
+		coverPanel.setBounds(6, 6, 145, 114);
+		infoPanel.add(coverPanel);
+		
+		JPanel titlePanel = new JPanel();
+		titlePanel.setBounds(6, 132, 145, 29);
+		infoPanel.add(titlePanel);
+		GridBagLayout gbl_titlePanel = new GridBagLayout();
+		gbl_titlePanel.columnWidths = new int[]{0, 0};
+		gbl_titlePanel.rowHeights = new int[]{0, 0};
+		gbl_titlePanel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_titlePanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		titlePanel.setLayout(gbl_titlePanel);
+		
+		songInfoLabel = new JLabel("");
+		GridBagConstraints gbc_songInfoLabel = new GridBagConstraints();
+		gbc_songInfoLabel.gridx = 0;
+		gbc_songInfoLabel.gridy = 0;
+		titlePanel.add(songInfoLabel, gbc_songInfoLabel);
 	}
 
 	private void setContentPane() {
