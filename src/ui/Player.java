@@ -45,6 +45,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 
 import controller.PlaybackController;
 import entities.AudioFile;
+import java.awt.Font;
 
 public class Player extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -97,6 +98,7 @@ public class Player extends JFrame {
 		controlPanel.setLayout(gbl_controlPanel);
 		
 		JButton btnPrevious = new JButton("⏮︎");
+		btnPrevious.setFont(new Font("Dialog", Font.BOLD, 13));
 		btnPrevious.setPreferredSize(new Dimension(43, 24));
 		btnPrevious.setMaximumSize(new Dimension(43, 24));
 		btnPrevious.setMinimumSize(new Dimension(43, 24));
@@ -113,6 +115,7 @@ public class Player extends JFrame {
 		controlPanel.add(btnPrevious, gbc_btnPrevious);
 		
 		JButton btnPlayPause = new JButton("⏯︎");
+		btnPlayPause.setFont(new Font("Dialog", Font.BOLD, 13));
 		btnPlayPause.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				playback.pause();
@@ -134,6 +137,7 @@ public class Player extends JFrame {
 		controlPanel.add(btnPlayPause, gbc_btnPlayPause);
 		
 		JButton btnNext = new JButton("⏭︎");
+		btnNext.setFont(new Font("Dialog", Font.BOLD, 13));
 		btnNext.setPreferredSize(new Dimension(43, 24));
 		btnNext.setMaximumSize(new Dimension(43, 24));
 		btnNext.setMinimumSize(new Dimension(43, 24));
